@@ -31,6 +31,10 @@
 - `Newsletter.tsx` 前端區塊（首頁 + 專欄列表底部）
 - `/api/subscribe` 串 MailerLite；未設金鑰時走 pending 模式不報錯
 
+**交接機制**
+- 建立 `HANDOFF.md`（接手說明書）與 `WORKLOG.md`（工作紀錄）
+- 定義「收工」流程：更新 WORKLOG/HANDOFF → commit+push → 回報（並存成長期記憶，跨對話沿用）
+
 ### 關鍵決策
 - **寄件網域**：Resend 免費方案限 1 個驗證網域，`jing-ho.tw` 加不進去 → 改用帳號內已驗證的 `huibang.com.tw`（`noreply@huibang.com.tw`）。此信只給站長，網域不同不影響。
 - **敏感金鑰**：全部走環境變數（`.env.local` 本機、Vercel 加密），不寫進程式碼、不 commit。
