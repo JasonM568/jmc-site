@@ -1,78 +1,9 @@
 "use client";
 
 import { useState } from "react";
-
-/* ── Navbar ── */
-function Navbar() {
-  const [open, setOpen] = useState(false);
-  const links = [
-    { href: "#about", label: "關於我" },
-    { href: "#services", label: "服務" },
-    { href: "#course", label: "課程" },
-    { href: "#testimonials", label: "學員見證" },
-    { href: "#contact", label: "聯絡我" },
-  ];
-  return (
-    <nav className="fixed top-0 inset-x-0 z-50 bg-[#FFFBF5]/90 backdrop-blur border-b border-orange-100">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="font-bold text-xl text-orange-600 tracking-tight">
-          陳孟宏
-        </a>
-        <div className="hidden md:flex items-center gap-6">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-sm text-stone-600 hover:text-orange-600 transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="ml-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-medium px-4 py-2 rounded-full transition-colors"
-          >
-            預約免費諮詢
-          </a>
-        </div>
-        <button
-          className="md:hidden text-stone-700 p-1"
-          onClick={() => setOpen(!open)}
-          aria-label="開啟選單"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {open ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
-      {open && (
-        <div className="md:hidden bg-[#FFFBF5] border-t border-orange-100 px-6 pb-4">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="block py-3 text-stone-600 hover:text-orange-600 transition-colors border-b border-orange-50 last:border-0"
-            >
-              {l.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={() => setOpen(false)}
-            className="mt-3 block text-center bg-orange-500 text-white font-medium py-2.5 rounded-full"
-          >
-            預約免費諮詢
-          </a>
-        </div>
-      )}
-    </nav>
-  );
-}
+import Navbar from "@/app/components/Navbar";
+import Footer from "@/app/components/Footer";
+import Newsletter from "@/app/components/Newsletter";
 
 /* ── Hero ── */
 function Hero() {
@@ -489,21 +420,6 @@ function Contact() {
   );
 }
 
-/* ── Footer ── */
-function Footer() {
-  return (
-    <footer className="bg-stone-900 text-stone-400 py-10 px-6">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div>
-          <div className="font-bold text-white text-lg">陳孟宏</div>
-          <div className="text-sm mt-0.5">AI 導入策略顧問 × Vibe Coding 家教</div>
-        </div>
-        <div className="text-sm">© 2026 陳孟宏. All rights reserved.</div>
-      </div>
-    </footer>
-  );
-}
-
 /* ── Main Page ── */
 export default function HomePage() {
   return (
@@ -515,6 +431,7 @@ export default function HomePage() {
         <Services />
         <Course />
         <Testimonials />
+        <Newsletter />
         <Contact />
       </main>
       <Footer />
