@@ -316,11 +316,17 @@ function Contact() {
     setStatus("sending");
     const form = e.currentTarget;
     const data = new FormData(form);
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      interest: String(data.get("interest") ?? ""),
+      message: String(data.get("message") ?? ""),
+    };
     try {
-      const res = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
       if (res.ok) {
         setStatus("done");
