@@ -8,6 +8,7 @@ const links = [
   { href: "/#services", label: "服務" },
   { href: "/#course", label: "課程" },
   { href: "/columns", label: "專欄" },
+  { href: "/order", label: "餐點登記" },
   { href: "/#testimonials", label: "學員見證" },
   { href: "/#contact", label: "聯絡我" },
 ];
